@@ -21,7 +21,7 @@ export class AuthService {
             return userAccount
            }
         } catch (error) {
-            throw new error('Account Creation Failed')
+            throw new Error('Account Creation Failed')
         }
     }
 
@@ -29,7 +29,7 @@ export class AuthService {
         try {
            return await this.account.createEmailSession(email , password)
         } catch (error) {
-            throw new error('email or password not matched')
+            throw new Error('email or password not matched')
         }
     }
 
@@ -37,7 +37,7 @@ export class AuthService {
       try {
        return await this.account.get()
       } catch (error) {
-        throw new error('LogIn Failed')
+        throw new Error ('LogIn Failed')
       }
       return null
     }
@@ -46,7 +46,7 @@ export class AuthService {
         try {
          return await this.account.deleteSessions()
         } catch (error) {
-            throw new error('LogOut Failed')
+            throw new Error('LogOut Failed')
         }
     }
 }
